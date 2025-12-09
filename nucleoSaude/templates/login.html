@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} login {% endblock %}
+{% block content%}
+<main class="login-page">
+   {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                
+                <div class="alert {{ message.tags }}" role="alert">
+                    {{ message.message }}
+                </div>                
+            {% endfor %}
+        </div>
+    {% endif %}    
+    <section class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+    <section class="registrar">
+        <a href="{% url 'registrar' %}"><h5>CRIAR CONTA</h5></a>
+    </section>   
+</main>
+{% endblock %}   
