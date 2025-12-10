@@ -66,6 +66,22 @@ def perfil(request):
     request.session['visitas'] = visitas
     return render(request, 'perfil.html')
 
+@login_required
+def medicos(request):
+    return render(request, 'medicos.html')
+
+@login_required
+def pacientes(request):
+    return render(request, 'pacientes.html')
+
+def agendamento(request):
+    if request.user.is_authenticated:
+        return render(request, 'agendamento.html')
+                      
+    return redirect('login')
+
+
+
 def logout_view(request):
     logout(request)
     messages.info(request, 'Você saiu')

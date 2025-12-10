@@ -23,9 +23,6 @@ from nucleoSaude import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('nucleoSaude.urls')),    
-    path('login/',views.login_view ,name='login'),
-    path('registrar/',views.registrar_view ,name='registrar'),
-    path('perfil/',views.perfil ,name='perfil'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
